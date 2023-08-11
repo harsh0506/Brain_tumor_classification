@@ -1,6 +1,6 @@
 Deep Learning Image Classification Project
 
-Deep Learning Image Classification Project
+Brain tumor classifier
 ==========================================
 
 This project focuses on building a Convolutional Neural Network (CNN) based image classification system using TensorFlow and Keras. It also includes a Flask backend that serves both a web-based user interface and an API endpoint for making predictions.
