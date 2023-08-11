@@ -1,13 +1,812 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>File Upload</title>
-</head>
-<body>
-    <h1>File Upload Example</h1>
-    <form action="/predict" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="Upload">
-    </form>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brain Health Awareness</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a href="https://flowbite.com/" class="flex items-center">
+          <img
+            src="https://image.shutterstock.com/image-vector/brain-tumor-vector-icon-260nw-771922162.jpg"
+            class="h-8 mr-3"
+            alt="Flowbite Logo"
+          />
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+            >Brain tumor foundation</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="#home"
+                class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#faq"
+                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >FAQs</a
+              >
+            </li>
+            <li>
+              <a
+                href="#upload"
+                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Classify</a
+              >
+            </li>
+            <li>
+              <a
+                href="#understand"
+                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Info</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      id="home"
+      style="padding-top: 11vh"
+      class="flex flex-col items-center justify-center max-w-2xl px-4 pt-12 mx-auto sm:max-w-xl md:max-w-2xl lg:pt-32 md:px-8"
+    >
+      <div
+        class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
+      >
+        <div>
+          <p
+            class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400"
+          >
+            Brain tumor
+          </p>
+        </div>
+        <h2
+          class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto"
+        >
+          <span class="relative inline-block">
+            <svg
+              viewBox="0 0 52 24"
+              fill="currentColor"
+              class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
+            >
+              <defs>
+                <pattern
+                  id="9ef1ff62-feb2-41fe-8163-772b4c79de7b"
+                  x="0"
+                  y="0"
+                  width=".135"
+                  height=".30"
+                >
+                  <circle cx="1" cy="1" r=".7"></circle>
+                </pattern>
+              </defs>
+              <rect
+                fill="url(#9ef1ff62-feb2-41fe-8163-772b4c79de7b)"
+                width="52"
+                height="24"
+              ></rect>
+            </svg>
+            <span class="relative"></span>
+          </span>
+          Raise Your Awareness for Brain Tumors
+        </h2>
+        <p class="text-base text-gray-700 md:text-lg">
+          Join Us in the Fight Against Brain Tumors and Make a Difference Today!
+        </p>
+      </div>
+      <form class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
+        <input
+          placeholder="join the news letter to get informed"
+          required=""
+          type="text"
+          class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+        />
+        <button
+          style="background: purple"
+          type="submit"
+          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+        >
+          Subscribe
+        </button>
+      </form>
+      <p class="max-w-md mb-10 text-xs text-gray-600 sm:text-sm md:text-center">
+        Get Involved and Make a Difference There are many ways you can
+        contribute to the brain tumor awareness movement.
+      </p>
+      <img
+        src="{{ url_for('static', filename='images/brain1.png') }}"
+        class="w-full mx-auto md:w-auto md:max-w-xs"
+        alt=""
+      />
+    </div>
+
+    <div
+      id="faq"
+      class="max-w-screen-xl mx-auto px-5 py-2 bg-white min-h-sceen"
+    >
+      <div>
+        <div class="flex flex-col items-center">
+          <h2 class="font-bold text-5xl mt-5 tracking-tight">FAQ</h2>
+          <p class="text-neutral-500 text-xl mt-3">Frequenty asked questions</p>
+        </div>
+        <div class="grid divide-y divide-neutral-200 max-w-xl mx-auto mt-8">
+          <!-- New FAQ Item: How are Brain Tumors Diagnosed? -->
+          <div class="py-5">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center font-medium cursor-pointer list-none"
+              >
+                <span>How are Brain Tumors Diagnosed?</span>
+                <span class="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shape-rendering="geometricPrecision"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                Brain tumors are diagnosed through a combination of imaging
+                tests and clinical evaluations. Common diagnostic methods
+                include magnetic resonance imaging (MRI), computed tomography
+                (CT) scans, and biopsies. These tests help doctors determine the
+                size, location, and type of tumor. Accurate diagnosis is
+                essential for developing an appropriate treatment plan.
+              </p>
+            </details>
+          </div>
+
+          <!-- New FAQ Item: What are the Treatment Options for Brain Tumors? -->
+          <div class="py-5">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center font-medium cursor-pointer list-none"
+              >
+                <span>What are the Treatment Options for Brain Tumors?</span>
+                <span class="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shape-rendering="geometricPrecision"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                Treatment options for brain tumors depend on factors such as the
+                tumor type, location, and size. They may include surgery to
+                remove the tumor, radiation therapy to target and shrink the
+                tumor, and chemotherapy to destroy cancer cells. Other
+                approaches, such as targeted therapy and immunotherapy, are also
+                used. Treatment plans are personalized based on individual
+                cases.
+              </p>
+            </details>
+          </div>
+
+          <!-- New FAQ Item: Can Brain Tumors be Prevented? -->
+          <div class="py-5">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center font-medium cursor-pointer list-none"
+              >
+                <span>Can Brain Tumors be Prevented?</span>
+                <span class="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shape-rendering="geometricPrecision"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                The exact causes of brain tumors are not always known, and many
+                factors can contribute to their development. While specific
+                preventive measures may not exist, leading a healthy lifestyle,
+                avoiding exposure to harmful chemicals, and getting regular
+                medical check-ups can contribute to overall well-being and early
+                detection of potential health issues, including brain tumors.
+              </p>
+            </details>
+          </div>
+
+          <div class="py-5">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center font-medium cursor-pointer list-none"
+              >
+                <span>What is a Brain Tumor?</span>
+                <span class="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shape-rendering="geometricPrecision"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                A brain tumor is a mass or growth of abnormal cells in the
+                brain. It can be benign (non-cancerous) or malignant
+                (cancerous), and it can affect brain function and health. Brain
+                tumors are classified based on their location, type of cells,
+                and behavior. Treatment options vary depending on the type and
+                stage of the tumor.
+              </p>
+            </details>
+          </div>
+
+          <!-- New FAQ Item: What are the Symptoms of a Brain Tumor? -->
+          <div class="py-5">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center font-medium cursor-pointer list-none"
+              >
+                <span>What are the Symptoms of a Brain Tumor?</span>
+                <span class="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shape-rendering="geometricPrecision"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                Symptoms of a brain tumor can vary widely depending on the
+                tumor's location and size. Common symptoms may include
+                headaches, seizures, changes in vision or hearing, difficulty
+                speaking or understanding, memory problems, and changes in mood
+                or personality. It's important to seek medical attention if you
+                experience persistent or worsening symptoms.
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="upload"
+      style="width: 80vw"
+      class="container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center"
+    >
+      <div class="w-full lg:w-1/2">
+        <div class="lg:max-w-lg">
+          <h1
+            class="text-3xl font-semibold tracking-wide text-gray-800 dark:text-white lg:text-4xl"
+          >
+            Easiest way to Classify your brain mri
+          </h1>
+
+          <div class="mt-8 space-y-5">
+            <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-2 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="purple"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+
+              <span class="mx-2">Clean and Simple Layout</span>
+            </p>
+
+            <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-2 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="purple"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+
+              <span class="mx-2">Just drag and drop the image</span>
+            </p>
+
+            <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-2 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="purple"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+
+              <span class="mx-2">Easy to Use</span>
+            </p>
+
+            <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+              <span class="mx-2" id="response"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="width: 37vw"
+        class="flex items-center justify-center w-full h-96 lg:w-1/2"
+      >
+        <div style="width: 37vw" class="col-span-full">
+          <div
+            id="file-drop-zone"
+            class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"
+          >
+            <div class="text-center">
+              <svg
+                class="mx-auto h-12 w-12 text-gray-300"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <div
+                id="upload-div"
+                class="mt-4 flex text-sm leading-6 text-gray-600"
+              >
+                <label
+                  for="file-upload"
+                  class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                >
+                  <span style="color: purple">Upload a file</span>
+                  <input
+                    id="file-upload"
+                    name="file-upload"
+                    type="file"
+                    class="sr-only"
+                  />
+                </label>
+                <p class="pl-1">or drag and drop</p>
+              </div>
+              <p class="text-xs leading-5 text-gray-600">
+                PNG, JPG, GIF up to 10MB
+              </p>
+            </div>
+          </div>
+          <button
+            id="upload-button"
+            style="background: purple"
+            type="button"
+            class="h-10 px-4 py-2 m-1 text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400"
+          >
+            Upload
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <section id="understand" class="bg-white dark:bg-gray-900">
+      <div style="width: 80vw" class="container px-6 py-10 mx-auto">
+        <div class="flex items-center justify-between">
+          <h1
+            class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white"
+          >
+            Lets understand this
+          </h1>
+        </div>
+
+        <hr class="my-8 border-gray-200 dark:border-gray-700" />
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div>
+            <img
+              class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+              src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              alt=""
+            />
+
+            <div class="mt-8">
+              <span class="text-blue-500 uppercase">category</span>
+
+              <h1
+                class="mt-4 text-xl font-semibold text-gray-800 dark:text-white"
+              >
+                What is a Brain Tumor?
+              </h1>
+
+              <p class="mt-2 text-gray-500 dark:text-gray-400">
+                LorLearn about the basics of brain tumors, including their
+                types, causes, and how they can affect brain function.
+              </p>
+
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <a
+                    href="#"
+                    class="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
+                  >
+                    Dr Rajesh
+                  </a>
+
+                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                    June 1, 2023
+                  </p>
+                </div>
+
+                <a
+                  href="#"
+                  class="inline-block text-blue-500 underline hover:text-blue-400"
+                  >Read more</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img
+              class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+              src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              alt=""
+            />
+
+            <div class="mt-8">
+              <span class="text-blue-500 uppercase">category</span>
+
+              <h1
+                class="mt-4 text-xl font-semibold text-gray-800 dark:text-white"
+              >
+                Symptoms and Diagnosis
+              </h1>
+
+              <p class="mt-2 text-gray-500 dark:text-gray-400">
+                Explore the common symptoms of brain tumors, how they are
+                diagnosed, and the importance of early detection.
+              </p>
+
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <a
+                    href="#"
+                    class="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
+                  >
+                    Dr vidhi
+                  </a>
+
+                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                    February 6, 2023
+                  </p>
+                </div>
+
+                <a
+                  href="#"
+                  class="inline-block text-blue-500 underline hover:text-blue-400"
+                  >Read more</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img
+              class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+              src="https://images.unsplash.com/photo-1597534458220-9fb4969f2df5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+              alt=""
+            />
+
+            <div class="mt-8">
+              <span class="text-blue-500 uppercase">category</span>
+
+              <h1
+                class="mt-4 text-xl font-semibold text-gray-800 dark:text-white"
+              >
+                Treatment Options
+              </h1>
+
+              <p class="mt-2 text-gray-500 dark:text-gray-400">
+                Discover the various treatment approaches available for brain
+                tumors, including surgery, radiation, and chemotherapy.
+              </p>
+
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <a
+                    href="#"
+                    class="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
+                  >
+                    Dr Rami
+                  </a>
+
+                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                    February 19, 2023
+                  </p>
+                </div>
+
+                <a
+                  href="#"
+                  class="inline-block text-blue-500 underline hover:text-blue-400"
+                  >Read more</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-white lg:grid lg:grid-cols-5">
+      <div class="relative block h-32 lg:col-span-2 lg:h-full">
+        <img
+          src="https://www.narayanahealth.org/blog/wp-content/uploads/2023/04/Brain-Tumors-Understanding-the-Causes-Symptoms-and-Treatment-Options.jpeg"
+          alt=""
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
+
+      <div class="px-4 py-16 sm:px-6 lg:col-span-3 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <div>
+            <p>
+              <span class="text-xs uppercase tracking-wide text-gray-500">
+                Contact Us
+              </span>
+              <a
+                href="#"
+                class="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl"
+              >
+                Support Helpline
+              </a>
+            </p>
+            <ul class="mt-8 space-y-1 text-sm text-gray-700">
+              <li>Available 24/7</li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="font-medium text-gray-900">Follow Us</p>
+            <ul class="mt-6 flex gap-6">
+              <li>
+                <a
+                  href="/"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="text-gray-700 transition hover:opacity-75"
+                >
+                  <span class="sr-only">Facebook</span>
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <!-- Facebook icon SVG -->
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="text-gray-700 transition hover:opacity-75"
+                >
+                  <span class="sr-only">Instagram</span>
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <!-- Instagram icon SVG -->
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="text-gray-700 transition hover:opacity-75"
+                >
+                  <span class="sr-only">Twitter</span>
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <!-- Twitter icon SVG -->
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-12 border-t border-gray-100 pt-12">
+          <div class="sm:flex sm:items-center sm:justify-between">
+            <ul class="flex flex-wrap gap-4 text-xs">
+              <li>
+                <a href="#" class="text-gray-500 transition hover:opacity-75"
+                  >Terms & Conditions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-500 transition hover:opacity-75"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-500 transition hover:opacity-75"
+                  >Cookies</a
+                >
+              </li>
+            </ul>
+            <p class="mt-8 text-xs text-gray-500 sm:mt-0">
+              &copy; 2023. Brain Tumor Awareness. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const uploadButton = document.getElementById("upload-button");
+        const uploadDiv = document.getElementById("upload-div");
+        const fileInput = document.getElementById("file-upload");
+        const textResponse = document.getElementById("response");
+        const loadingElement = document.getElementById("loading");
+
+        // Prevent default behavior for drag events
+        uploadDiv.addEventListener("dragover", (e) => {
+          e.preventDefault();
+        });
+
+        // Handle dropped files
+        uploadDiv.addEventListener("drop", (e) => {
+          e.preventDefault();
+          const file = e.dataTransfer.files[0];
+          handleFileUpload(file);
+        });
+
+        // Handle file input change
+        fileInput.addEventListener("change", () => {
+          const file = fileInput.files[0];
+          handleFileUpload(file);
+        });
+
+        function handleFileUpload(file) {
+          if (file) {
+            const formData = new FormData();
+            formData.append("file", file);
+
+            fetch("/predict", {
+              method: "POST",
+              body: formData,
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Network response was not ok");
+                }
+                return response.json();
+              })
+              .then((data) => {
+                // Handle the response data here
+                textResponse.textContent = data;
+                console.log(data);
+              })
+              .catch((error) => {
+                // Handle errors
+                console.error("Error:", error);
+                textResponse.textContent =
+                  "An error occurred. Please try again later.";
+              })
+              .finally(() => {
+                loadingElement.style.display = "none"; // Hide loading animation
+              });
+          }
+        }
+      });
+    </script>
+  </body>
 </html>
