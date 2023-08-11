@@ -1,10 +1,6 @@
 Deep Learning Image Classification Project
 
-<<<<<<< HEAD
 Deep Learning Image Classification Project
-=======
-Brain tumor Classifer
->>>>>>> 3e7d850f4f2a46db2e8e74d07b4443d5020bd120
 ==========================================
 
 This project focuses on building a Convolutional Neural Network (CNN) based image classification system using TensorFlow and Keras. It also includes a Flask backend that serves both a web-based user interface and an API endpoint for making predictions.
@@ -40,8 +36,8 @@ Features
 --------
 
 *   Utilizes a Convolutional Neural Network (CNN) for image classification.
-*   Web-based frontend accessible at `http://localhost:5000`.
-*   API endpoint for predictions accessible at `http://localhost:5000/predict`.
+*   Web-based frontend accessible at `https://brain-tumor-classification-harsh.onrender.com/`.
+*   API endpoint for predictions accessible at `https://brain-tumor-classification-harsh.onrender.com/predict`.
 
 Technologies Used
 -----------------
@@ -57,17 +53,21 @@ Environment Setup
 To set up the project environment, follow these steps:
 
 1.  Create a new Conda environment:
-`conda create --name cv_tensorflow_tumor`3.  Activate the environment:
-`conda activate cv_tensorflow_tumor`5.  Install required packages:
+`conda create --name cv_tensorflow_tumor`
+3.  Activate the environment:
+`conda activate cv_tensorflow_tumor`
+5.  Install required packages:
 `conda install tensorflow==2.12 keras==2.12 flask numpy pandas pillow asyncio`
 
 Running the Project
 -------------------
 
 1.  Clone this repository:
-`git clone https://github.com/yourusername/your-repo.git`3.  Navigate to the project directory:
-`cd your-repo`5.  Run the Flask application:
-`python app.py`7.  Access the web-based frontend at `http://localhost:5000` and the API endpoint at `http://localhost:5000/predict`.
+`git clone https://github.com/harsh0506/Brain_tumor_classification/tree/main`
+2.  Navigate to the project directory: `cd repo`
+3.  Run the Flask application:
+`python app.py`
+4.  Access the web-based frontend at `https://brain-tumor-classification-harsh.onrender.com/` and the API endpoint at `https://brain-tumor-classification-harsh.onrender.com/`.
 
 Docker Support
 --------------
@@ -80,8 +80,4 @@ Run the Docker container:
 
 `docker run -p 5000:5000 image-classification-app`
 
-<<<<<<< HEAD
 Access the web-based frontend and API endpoint as before.
-=======
-Access the web-based frontend and API endpoint as before.
->>>>>>> 3e7d850f4f2a46db2e8e74d07b4443d5020bd120
