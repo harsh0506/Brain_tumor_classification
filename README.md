@@ -1,6 +1,10 @@
 Deep Learning Image Classification Project
 
+<<<<<<< HEAD
 Deep Learning Image Classification Project
+=======
+Brain tumor Classifer
+>>>>>>> 3e7d850f4f2a46db2e8e74d07b4443d5020bd120
 ==========================================
 
 This project focuses on building a Convolutional Neural Network (CNN) based image classification system using TensorFlow and Keras. It also includes a Flask backend that serves both a web-based user interface and an API endpoint for making predictions.
@@ -76,4 +80,8 @@ Run the Docker container:
 
 `docker run -p 5000:5000 image-classification-app`
 
+<<<<<<< HEAD
 Access the web-based frontend and API endpoint as before.
+=======
+Access the web-based frontend and API endpoint as before.
+>>>>>>> 3e7d850f4f2a46db2e8e74d07b4443d5020bd120
